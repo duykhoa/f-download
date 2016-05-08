@@ -30,8 +30,8 @@ module Fshare
     end
 
     def base_name
-      File.basename @url
-      #File.join(DOWNLOAD_DIR, File.basename(@url))
+      #File.basename @url
+      File.join(DOWNLOAD_DIR, File.basename(@url))
     end
   end
 end
