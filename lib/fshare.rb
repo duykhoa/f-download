@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require 'rest-client'
 require 'net/http'
 require 'ruby-progressbar'
