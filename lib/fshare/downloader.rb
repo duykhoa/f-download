@@ -15,7 +15,12 @@ module Fshare
       http_object.use_ssl = true if uri.scheme == 'https'
 
       http_object.start do |http|
-        pbar = ProgressBar.create(title: base_name, total: http.request_head(@url)['content-length'].to_i)
+        size = http.request_head(@url)['content-length'].to_i
+        pbar = ProgressBar.create(
+          title: base_name,
+          total: size,
+          format: "%a %B %p%% %t Total #{size/(1024**2)} MB"
+        )
         request = Net::HTTP::Get.new uri
 
         http.request request do |response|
