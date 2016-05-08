@@ -1,0 +1,4 @@
+#!/bin/sh
+
+bundle install -j4
+mkdir downloads
