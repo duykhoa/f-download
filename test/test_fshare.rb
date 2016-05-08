@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require './lib/fshare'
+require 'test_helper'
 
 class TestShare < Minitest::Test
   def test_download
