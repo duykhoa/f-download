@@ -17,6 +17,10 @@ module Fshare
     end
 
     def converted_link
+      restclient_request.execute
+    end
+
+    def restclient_request
       RestClient::Request.new(
         method: HTTP_METHOD,
         url: FSHARE_KILLER_URL,
@@ -25,7 +29,7 @@ module Fshare
           type: FORM_TYPE,
           password:''
         }
-      ).execute
+      )
     end
   end
 end
