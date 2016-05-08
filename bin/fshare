@@ -10,6 +10,7 @@ url = ARGV.shift
 
 def usage(why = nil)
   puts why
+  printf "\t fshare download|convert https://fshare.vn/file/1234\n"
   exit(1)
 end
 
