@@ -10,6 +10,10 @@ module Fshare
 
   def self.download(url)
     direct_link = LinkConverter.convert(url)
-    Downloader.download(direct_link)
+    Downloader.download direct_link
+  end
+
+  def self.convert(url)
+    puts LinkConverter.convert(url)
   end
 end

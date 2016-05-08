@@ -5,6 +5,18 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + "/../lib"
 require 'rubygems'
 require 'fshare'
 
+action = ARGV.shift
 url = ARGV.shift
 
-Fshare.download url
+def usage(why = nil)
+  puts why
+  exit(1)
+end
+
+unless %w(download convert).include?(action)
+  usage("Only support download | convert")
+end
+
+Fshare.send(action, url)
+
+ARGV.clear
