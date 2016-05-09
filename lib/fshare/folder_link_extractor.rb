@@ -1,15 +1,13 @@
 module Fshare
-  class LinkConverter
-    def self.convert(url)
-      new(url).convert
-    end
-
+  class FolderLinkExtractor
     def initialize(url = '')
       @url = url
     end
 
     def convert
-      parse(converted_link)['url']
+      parse(converted_link).inject([]) do |r, l|
+        r << LinkConverter.convert(l)
+      end
     end
 
     private
@@ -32,7 +30,7 @@ module Fshare
         url: FSHARE_KILLER_URL,
         payload: {
           url: @url,
-          type: :file,
+          type: :folder,
           password:''
         }
       )

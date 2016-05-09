@@ -8,6 +8,7 @@ module Fshare
   require File.dirname(__FILE__) + '/fshare/config'
   require File.dirname(__FILE__) + '/fshare/downloader'
   require File.dirname(__FILE__) + '/fshare/link_converter'
+  require File.dirname(__FILE__) + '/fshare/folder_link_extractor'
 
   def self.download(url)
     direct_link = LinkConverter.convert(url)
