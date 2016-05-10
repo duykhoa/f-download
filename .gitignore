@@ -3,3 +3,4 @@ downloads/*
 .bundle/**/*
 *.tar
 **/.DS_Store
+wget-log

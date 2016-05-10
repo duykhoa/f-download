@@ -11,11 +11,22 @@ module Fshare
   require File.dirname(__FILE__) + '/fshare/folder_link_extractor'
 
   def self.download(url)
-    direct_link = LinkConverter.convert(url)
+    direct_link = if url =~ /folder/
+      FolderLinkExtractor.convert(url).join(' ')
+    else
+      LinkConverter.convert(url)
+    end
+
     Downloader.download direct_link
   end
 
   def self.convert(url)
-    puts LinkConverter.convert(url)
+    result = if url =~ /folder/
+      FolderLinkExtractor.convert(url)
+    else
+      LinkConverter.convert(url)
+    end
+
+    puts result
   end
 end

@@ -1,5 +1,9 @@
 module Fshare
   class FolderLinkExtractor
+    def self.convert(url)
+      new(url).convert
+    end
+
     def initialize(url = '')
       @url = url
     end
